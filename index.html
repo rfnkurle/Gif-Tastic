@@ -1,86 +1,37 @@
 <!doctype html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Gif-Tastic</title>
-    
+
 </head>
+
 <body>
-<div class="container">
-<!-- Rendered buttons added here -->
-<div id="buttons"></div>
+    <div class="container">
+        <!-- Rendered buttons added here -->
+        <div id="buttons"></div>
 
-<form id="add-buttons">
-    <label for="form-input">Add a Gif, Yo!</label>
-    <input type="text" id="form-input"><br>
-    <!-- Button that adds new Gifs -->
-    <input id="add-gif" type="submit" value="Add a Gif, Yo!">
+        <form id="add-buttons">
+            <label for="form-input">Add a Gif, Yo!</label>
+            <input type="text" id="form-input"><br>
+            <!-- Button that adds new Gifs -->
+            <input id="add-gif" type="submit" value="Add a Gif, Yo!">
 
-</form>
-<!-- gifs put here -->
-<div id="gif-data"></div>
+        </form>
+        <!-- gifs put here -->
+        <div id="gif-data"></div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    
-    var topics = ["Obi-Wan Kenobi", "Luke Skywalker", "Han Solo", "Darth Vader", "Grand Moff Tarkin", "Admiral Thrawn", "Emperor Palpatine", "Princess Leia Organa", "Chewbacca", 
-            "C-3PO", "R2-D2", "Lando Calrissian", "Boba Fett", "Jabba the Hutt", "Darth Revan", "Darth Malak", "Padme Amidala"];
-
-        //    re-render html
-            function displayGifInfo() {
-                
-                var topic = $(this).attr("data-name");
-                var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=PmllwCesRgqPW399ZHuVCIba3Fy8cCr6";
-                
-           
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function(response){
-                    
-                    
-                    
-                });
-            }
-            
-            
-
-       
-            
-
-// creates a new button when a new topic is entered as text and submitted,
- function renderButtons (){
-    $("#buttons").empty();
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="./assets/app.js">
 
 
-for (var i = 0; i < topics.length; i++){
-  
-    var swButton = $("<button>" + topics[i] + "</button>");
-    
-    
 
-swButton.addClass("character");
 
-swButton.attr("data-name", topics[i]);
 
-swButton.text(topics[i]);
-   
-   $("#buttons").append(swButton);
-}
-}
-$("#add-gif").on("click", function(event){
-event.preventDefault();
 
-var character =$("#form-input").val().trim();
-
-topics.push(character);
-
-renderButtons()
-
-})
-$(document).on("click", ".character", displayGifInfo)
-    </script>
-  </div>
+        </script>
+    </div>
 </body>
 
 
