@@ -11,7 +11,7 @@
  
              var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=PmllwCesRgqPW399ZHuVCIba3Fy8cCr6&limit=10";
  
- 
+            //ajax call to get gif info
              $.ajax({
                  url: queryURL,
                  method: "GET"
@@ -35,7 +35,7 @@
                      
                      $("#gif-data").prepend(image, ratingText);
                     
-                    
+                    //attaches data attributes still and animate to the img src
                      image.attr("src", results[i].images.fixed_height_still.url);
                      image.attr("alt", "image");
                      image.attr("data-state", "still");
@@ -46,7 +46,7 @@
 
 
                     
-
+                        //click event to switch between animated and still gifs
 
                     $("#gif-data").on("click", function(){
 
@@ -71,7 +71,8 @@
                 
                     })
 
-
+                        //somehow the the still and animated urls are not functioning correctly
+                        //most likely I set attributes incorrectly
 
 
 
